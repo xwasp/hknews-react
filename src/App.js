@@ -52,6 +52,7 @@ const App = () => {
        id = "search" 
        value={searchTerm} 
        type='text'
+	   isFocused
        onInputChange={handleSearch} >
        Search:
        </InputWithLabel>
@@ -79,12 +80,12 @@ const Item = ({ item }) => {
   );
 }
 
-const InputWithLabel = ({ id, value, type, onInputChange, children}) => {
+const InputWithLabel = ({ id, value, type, isFocused, onInputChange, children}) => {
 
   return (
     <>
       <label htmlFor={id} type={type}>{children} </label>
-      <input id={id} type="text" onChange={onInputChange} value={value} />
+      <input id={id} type="text" onChange={onInputChange} value={value} autoFocus={isFocused} />
     </>
   );
 }
